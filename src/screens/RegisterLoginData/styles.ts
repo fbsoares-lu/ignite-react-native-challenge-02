@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { ScrollView } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -14,7 +15,7 @@ export const HeaderTitle = styled.Text`
   margin: ${RFValue(64)}px auto ${RFValue(41)}px auto;
 `;
 
-export const Form = styled.View`
+export const Form = styled(ScrollView)`
   flex: 1;
   background-color: #FFFFFF;
 

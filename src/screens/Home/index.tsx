@@ -22,11 +22,17 @@ interface LoginDataProps {
 type LoginListDataProps = LoginDataProps[];
 
 export function Home() {
-  // const [searchListData, setSearchListData] = useState<LoginListDataProps>([]);
-  // const [data, setData] = useState<LoginListDataProps>([]);
+  const [searchListData, setSearchListData] = useState<LoginListDataProps>([]);
+  const [data, setData] = useState<LoginListDataProps>([]);
+
+  const dataListKey = '@passmanager:logins';
 
   async function loadData() {
-    // Get asyncStorage data, use setSearchListData and setData
+    const dataList = await AsyncStorage.getItem(dataListKey);
+    const dataListFormatted = JSON.parse(dataList!);
+
+    setSearchListData(JSON.parse(dataListFormatted));
+    setData(JSON.parse(dataListFormatted));
   }
   useEffect(() => {
     loadData();
